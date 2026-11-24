@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Puja Boutique – Designer Suits, Lehengas & Custom Tailoring</title>
+<meta name="description" content="Puja Boutique: designer suits, lehengas, sarees and custom stitching. Visit the store, call us, or leave a review.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#2a1a24;--plum:#4a2437;--blush:#f4e4e8;--rose:#c98796;--brass:#a97a2c;--paper:#fffafb;--line:#e6cfd5;--text:#3a2a32}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font:400 17px/1.65 Jost,system-ui,sans-serif;color:var(--text);background:var(--paper)}
+h1,h2,h3{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;color:var(--ink);line-height:1.1}
+a{color:inherit}
+.wrap{max-width:1040px;margin:0 auto;padding:0 22px}
+header{position:sticky;top:0;background:rgba(255,250,251,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);z-index:5}
+nav{display:flex;align-items:center;justify-content:space-between;height:62px}
+.logo{font-family:"Cormorant Garamond",serif;font-size:26px;font-weight:600;text-decoration:none;color:var(--ink)}
+nav ul{display:flex;gap:22px;list-style:none;padding:0}
+nav a{text-decoration:none;font-size:15px}
+nav a:hover{color:var(--brass)}
+.hero{background:var(--plum);color:#f7e9ed;padding:84px 0 92px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;right:-90px;top:-90px;width:380px;height:380px;border-radius:50%;border:1px solid rgba(201,135,150,.45);box-shadow:0 0 0 40px rgba(201,135,150,.08),0 0 0 90px rgba(201,135,150,.05)}
+.hero h1{color:#fff;font-size:clamp(46px,8vw,86px);max-width:12ch;position:relative}
+.hero p{max-width:46ch;margin:22px 0 32px;font-size:19px;position:relative}
+.btn{display:inline-block;padding:13px 26px;border-radius:999px;text-decoration:none;font-weight:500;font-size:16px;border:1.5px solid transparent;cursor:pointer;font-family:inherit}
+.btn-main{background:var(--brass);color:#fff}
+.btn-main:hover{background:#8f6620}
+.btn-ghost{border-color:rgba(255,255,255,.55);color:#fff;margin-left:8px}
+.btn-ghost:hover{background:rgba(255,255,255,.12)}
+section{padding:72px 0}
+section h2{font-size:clamp(34px,5vw,48px);margin-bottom:14px}
+.lead{max-width:60ch;margin-bottom:34px}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+.tabs button{font:inherit;font-size:15px;padding:8px 18px;border-radius:999px;border:1.5px solid var(--line);background:#fff;color:var(--ink);cursor:pointer}
+.tabs button[aria-selected="true"]{background:var(--plum);border-color:var(--plum);color:#fff}
+.tabs button:focus-visible,.gallery button:focus-visible,#lbClose:focus-visible{outline:3px solid var(--rose);outline-offset:2px}
+.gallery{columns:3 220px;column-gap:16px}
+.item{break-inside:avoid;margin:0 0 18px}
+.item[hidden]{display:none}
+.item button{display:block;width:100%;padding:0;border:0;background:none;cursor:zoom-in;border-radius:12px;overflow:hidden}
+.item img{display:block;width:100%;height:auto;background:var(--blush)}
+.item figcaption{display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding:8px 2px 0;font-size:15px;color:var(--ink)}
+.item figcaption a{font-size:14px;color:var(--brass);white-space:nowrap}
+dialog{border:0;border-radius:14px;padding:16px;max-width:min(92vw,520px);text-align:center;background:var(--paper)}
+dialog::backdrop{background:rgba(42,26,36,.7)}
+dialog img{max-width:100%;max-height:70vh;border-radius:10px}
+dialog p{margin:10px 0 12px;color:var(--ink)}
+#lbClose{position:absolute;top:6px;right:10px;font-size:30px;line-height:1;background:none;border:0;cursor:pointer;color:var(--ink)}
+.alt{background:var(--blush)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+.tile{min-height:190px;border-radius:14px;padding:20px;display:flex;flex-direction:column;justify-content:flex-end;color:#fff}
+.tile h3{color:#fff;font-size:28px}
+.tile span{font-size:14px;opacity:.9}
+.t1{background:linear-gradient(160deg,#7a3a52,#4a2437)}
+.t2{background:linear-gradient(160deg,#b8893b,#6f4d17)}
+.t3{background:linear-gradient(160deg,#5f7f70,#2f4a3e)}
+.t4{background:linear-gradient(160deg,#c98796,#8b4a5c)}
+.info{display:grid;grid-template-columns:1fr 1fr;gap:34px}
+.info dt{font-weight:500;color:var(--ink);margin-top:14px}
+.info dd{margin:0}
+.map{border:0;width:100%;height:100%;min-height:300px;border-radius:14px;background:var(--blush)}
+.rating{display:flex;align-items:center;gap:14px;margin-bottom:26px;flex-wrap:wrap}
+.stars{color:var(--brass);letter-spacing:2px;font-size:22px}
+.reviews{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-bottom:40px}
+.review{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px}
+.review p{margin:8px 0 12px}
+.review b{color:var(--ink);font-weight:500}
+.review b{color:var(--ink);font-weight:500}
+.reviews:empty{display:none}
+form{background:#fff;border:1px solid var(--line);border-radius:14px;padding:24px;max-width:560px}
+form h3{font-size:30px;margin-bottom:6px}
+label{display:block;font-size:15px;margin:12px 0 4px;color:var(--ink)}
+input,textarea{width:100%;padding:11px 13px;border:1px solid var(--line);border-radius:10px;font:inherit;background:var(--paper)}
+input:focus,textarea:focus,.star-pick button:focus-visible{outline:3px solid var(--rose);outline-offset:2px}
+.star-pick{display:flex;gap:4px}
+.star-pick button{background:none;border:0;font-size:32px;line-height:1;color:#d8c3c8;cursor:pointer;padding:2px}
+.star-pick button.on{color:var(--brass)}
+form .btn{margin-top:18px}
+form .btn[disabled]{opacity:.6;cursor:wait}
+.note{font-size:14px;margin-top:10px;color:#6b5760}
+.review small{display:block;color:#7a6670;font-size:13px}
+footer{background:var(--ink);color:#d9c5cc;padding:34px 0;font-size:15px}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.wa{position:fixed;right:18px;bottom:18px;background:#25a05a;color:#fff;padding:12px 18px;border-radius:999px;text-decoration:none;font-weight:500;box-shadow:0 4px 14px rgba(0,0,0,.25);z-index:6}
+@media(max-width:700px){nav ul{display:none}.info{grid-template-columns:1fr}.btn-ghost{margin:10px 0 0}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header><div class="wrap"><nav>
+  <a class="logo" href="#top" data-bind="name">Puja Boutique</a>
+  <ul><li><a href="#collections">Collections</a></li><li><a href="#visit">Visit</a></li><li><a href="#reviews">Reviews</a></li></ul>
+</nav></div></header>
+
+<main id="top">
+<div class="hero"><div class="wrap">
+  <h1>Clothes made to fit you.</h1>
+  <p>Designer suits, lehengas and sarees, plus custom stitching by our own tailors. Come in, try it on, and take it home in your size.</p>
+  <a class="btn btn-main" href="#visit">Visit the store</a>
+  <a class="btn btn-ghost" href="#reviews">Read reviews</a>
+</div></div>
+
+<section id="collections"><div class="wrap">
+  <h2>Our collection</h2>
+  <p class="lead">Ready-to-wear pieces in the shop, plus custom stitching and designer blouses made to your measurements. Message us for prices and availability.</p>
+  <div class="tabs" id="tabs" role="tablist" aria-label="Choose a category"></div>
+  <div class="gallery" id="gallery"></div>
+</div></section>
+<dialog id="lightbox"><button type="button" id="lbClose" aria-label="Close photo">&times;</button><img id="lbImg" alt=""><p id="lbCap"></p><a class="btn btn-main" id="lbAsk" target="_blank" rel="noopener">Ask about this on WhatsApp</a></dialog>
+
+<section id="visit" class="alt"><div class="wrap">
+  <h2>Visit us</h2>
+  <div class="info">
+    <dl>
+      <dt>Address</dt><dd data-bind="address"></dd>
+      <dt>Opening hours</dt><dd data-bind="hours"></dd>
+      <dt>Phone</dt><dd><a data-bind="phone" id="phoneLink"></a></dd>
+      <p style="margin-top:22px"><a class="btn btn-main" id="dirBtn" target="_blank" rel="noopener">Get directions</a></p>
+    </dl>
+    <iframe class="map" id="map" title="Map showing the boutique location" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </div>
+</div></section>
+
+<section id="reviews"><div class="wrap">
+  <h2>Customer reviews</h2>
+  <div class="rating"><span class="stars" id="avgStars" aria-hidden="true"></span><span id="avgText">Be the first to review us.</span>
+    <a class="btn btn-main" id="googleBtn" target="_blank" rel="noopener">Also review us on Google</a></div>
+  <div class="reviews" id="reviewList"></div>
+
+  <form id="reviewForm">
+    <h3>Write a review</h3>
+    <label for="rn">Your name</label><input id="rn" maxlength="60" required autocomplete="name">
+    <label>Your rating</label>
+    <div class="star-pick" id="stars" role="radiogroup" aria-label="Rating"></div>
+    <label for="rt">Your review</label><textarea id="rt" rows="4" maxlength="600" required></textarea>
+    <button class="btn btn-main" type="submit" id="sendBtn">Submit review</button>
+    <p class="note" id="formMsg">Your review appears on this page straight away.</p>
+  </form>
+</div></section>
+</main>
+
+<footer><div class="wrap"><span>© <span id="yr"></span> <span data-bind="name"></span></span><span>Designer wear and custom tailoring</span></div></footer>
+<a class="wa" id="waBtn" target="_blank" rel="noopener">Chat on WhatsApp</a>
+
+<script>
+/* ===== EDIT THIS BLOCK WITH YOUR REAL DETAILS ===== */
+var SHOP = {
+  name: "Puja Boutique",
+  address: "2075, 3rd floor, Pipli Wala Town, Ram Dairy Wali Gali, Manimajra, Chandigarh",
+  hours: "Mon to Sun",
+  phone: "+91 76368 58071",
+  whatsapp: "917636858071",           // country code + number, no + or spaces
+  firebase: {                         // see setup steps: paste your Firebase web app config here
+    apiKey: "AIzaSyBgcr7rTAUE1hZE7M8r24ZEqR_g3wY24yo", authDomain: "puja-boutique.firebaseapp.com", projectId: "puja-boutique", appId: "1:1026769248577:web:9343f8e70d1019cc4801c0"
+  },
+  items: [                            // category ids: sarees, suits, lehengas, western, coord. Edit names freely.
+    ["saree-peach","sarees","Peach net saree"],
+    ["saree-lavender","sarees","Lavender satin saree with floral blouse"],
+    ["saree-green","sarees","Green embroidered saree"],
+    ["suit-lavender","suits","Lavender suit with dupatta"],
+    ["suit-pink","suits","Pink printed suit with dupatta"],
+    ["suit-cream","suits","Cream suit with embroidered dupatta"],
+    ["lehenga-yellow","lehengas","Lehenga sets for mother, daughter and son"],
+    ["top-peach","western","Peach button-up top"],
+    ["top-magenta","western","Magenta collar top"],
+    ["dress-navy","western","Navy floral dress"],
+    ["coord-yellow","coord","Yellow floral co-ord set"],
+    ["coord-pink-green","coord","Pink top and jacket with green palazzo"],
+    ["kurti-cream-red","coord","Cream kurti with red dhoti pants"]
+  ],
+  categories: [["all","All"],["sarees","Sarees"],["suits","Suits"],["lehengas","Lehengas"],["western","Tops and dresses"],["coord","Co-ords and kurtis"]],
+  googleReviewUrl: "https://search.google.com/local/writereview?placeid=YOUR_PLACE_ID"
+};
+/* ================================================== */
+
+document.querySelectorAll("[data-bind]").forEach(function(el){el.textContent=SHOP[el.dataset.bind]});
+document.title = SHOP.name + " – Designer Suits, Lehengas & Custom Tailoring";
+document.getElementById("yr").textContent = new Date().getFullYear();
+var q = encodeURIComponent(SHOP.name + " " + SHOP.address);
+document.getElementById("map").src = "https://www.google.com/maps?q=" + q + "&output=embed";
+document.getElementById("dirBtn").href = "https://www.google.com/maps/search/?api=1&query=" + q;
+document.getElementById("phoneLink").href = "tel:" + SHOP.phone.replace(/\s/g,"");
+document.getElementById("googleBtn").href = SHOP.googleReviewUrl;
+document.getElementById("waBtn").href = "https://wa.me/" + SHOP.whatsapp + "?text=" + encodeURIComponent("Hello, I saw your website.");
+
+var gal = document.getElementById("gallery"), tabs = document.getElementById("tabs");
+function ask(name){ return "https://wa.me/" + SHOP.whatsapp + "?text=" + encodeURIComponent("Hello, I saw \"" + name + "\" on your website. Is it available? What is the price?"); }
+var lb = document.getElementById("lightbox");
+SHOP.items.forEach(function(it){
+  var f = document.createElement("figure"); f.className = "item"; f.dataset.cat = it[1];
+  var btn = document.createElement("button"); btn.type = "button"; btn.setAttribute("aria-label", "View " + it[2]);
+  var img = document.createElement("img"); img.src = "images/" + it[0] + ".jpg"; img.alt = it[2]; img.loading = "lazy"; img.width = 720;
+  btn.appendChild(img);
+  btn.onclick = function(){
+    document.getElementById("lbImg").src = img.src; document.getElementById("lbImg").alt = it[2];
+    document.getElementById("lbCap").textContent = it[2]; document.getElementById("lbAsk").href = ask(it[2]);
+    if (lb.showModal) lb.showModal();
+  };
+  var cap = document.createElement("figcaption"); var t = document.createElement("span"); t.textContent = it[2];
+  var a = document.createElement("a"); a.href = ask(it[2]); a.target = "_blank"; a.rel = "noopener"; a.textContent = "Ask price";
+  cap.append(t, a); f.append(btn, cap); gal.appendChild(f);
+});
+SHOP.categories.forEach(function(c, i){
+  var b = document.createElement("button"); b.type = "button"; b.textContent = c[1]; b.setAttribute("role", "tab");
+  b.setAttribute("aria-selected", i === 0 ? "true" : "false");
+  b.onclick = function(){
+    [].forEach.call(tabs.children, function(x){ x.setAttribute("aria-selected", "false"); });
+    b.setAttribute("aria-selected", "true");
+    [].forEach.call(gal.children, function(f){ f.hidden = !(c[0] === "all" || f.dataset.cat === c[0]); });
+  };
+  tabs.appendChild(b);
+});
+document.getElementById("lbClose").onclick = function(){ lb.close(); };
+lb.addEventListener("click", function(e){ if (e.target === lb) lb.close(); });
+</script>
+<script type="module">
+const cfg = SHOP.firebase;
+const list = document.getElementById("reviewList"), msg = document.getElementById("formMsg");
+const form = document.getElementById("reviewForm"), btn = document.getElementById("sendBtn");
+let rating = 5, db = null, fs = null;
+
+const box = document.getElementById("stars");
+for (let n = 1; n <= 5; n++) {
+  const b = document.createElement("button");
+  b.type = "button"; b.textContent = "\u2605"; b.setAttribute("aria-label", n + (n > 1 ? " stars" : " star"));
+  b.onclick = () => { rating = n; paint(); };
+  box.appendChild(b);
+}
+function paint(){ [...box.children].forEach((b,i) => b.className = i < rating ? "on" : ""); }
+paint();
+const starText = n => "\u2605".repeat(n) + "\u2606".repeat(5 - n);
+
+function render(rows){
+  list.textContent = "";
+  rows.forEach(r => {
+    const d = document.createElement("div"); d.className = "review";
+    const s = document.createElement("span"); s.className = "stars"; s.textContent = starText(r.rating);
+    const p = document.createElement("p"); p.textContent = r.text;
+    const n = document.createElement("b"); n.textContent = r.name;
+    d.append(s, p, n);
+    if (r.when) { const t = document.createElement("small"); t.textContent = r.when; d.append(t); }
+    list.append(d);
+  });
+  if (rows.length) {
+    const avg = rows.reduce((a, r) => a + r.rating, 0) / rows.length;
+    document.getElementById("avgStars").textContent = starText(Math.round(avg));
+    document.getElementById("avgText").textContent = avg.toFixed(1) + " out of 5 from " + rows.length + " review" + (rows.length > 1 ? "s" : "");
+  }
+}
+
+async function load(){
+  const q = fs.query(fs.collection(db, "reviews"), fs.where("approved", "==", true), fs.limit(60));
+  const snap = await fs.getDocs(q);
+  const rows = snap.docs.map(d => d.data()).map(d => {
+    const ms = d.createdAt && d.createdAt.toMillis ? d.createdAt.toMillis() : 0;
+    return { name: d.name, rating: d.rating, text: d.text, ms, when: ms ? new Date(ms).toLocaleDateString("en-IN", {day:"numeric", month:"short", year:"numeric"}) : "" };
+  }).sort((a, b) => b.ms - a.ms);
+  render(rows);
+}
+
+if (cfg && cfg.projectId) {
+  try {
+    const V = "10.12.2";
+    const app = await import("https://www.gstatic.com/firebasejs/" + V + "/firebase-app.js");
+    fs = await import("https://www.gstatic.com/firebasejs/" + V + "/firebase-firestore.js");
+    db = fs.getFirestore(app.initializeApp(cfg));
+    load().catch(() => {});
+  } catch (e) { db = null; }
+}
+
+form.addEventListener("submit", async e => {
+  e.preventDefault();
+  if (!db) { msg.textContent = "Reviews are not switched on yet. Please use the Google review button."; return; }
+  btn.disabled = true; msg.textContent = "Sending...";
+  try {
+    await fs.addDoc(fs.collection(db, "reviews"), {
+      name: document.getElementById("rn").value.trim(),
+      rating: rating,
+      text: document.getElementById("rt").value.trim(),
+      approved: true,
+      createdAt: fs.serverTimestamp()
+    });
+    form.reset(); rating = 5; paint();
+    msg.textContent = "Thank you! Your review is now live."; load().catch(() => {});
+  } catch (err) {
+    msg.textContent = "Could not send your review. Please try again in a moment.";
+  }
+  btn.disabled = false;
+});
+</script>
+</body>
+</html>
